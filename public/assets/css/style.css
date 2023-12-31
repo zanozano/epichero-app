@@ -1,36 +1,28 @@
 body {
-    font-family: 'Montserrat', sans-serif;
-}
+  font-family: 'Montserrat', sans-serif; }
 
 .box {
-    background-color: rgb(255, 255, 255);
-    border-radius: 12px;
-    box-shadow: 0 0 20px -5px rgba(0, 0, 0, .15);
-}
+  background-color: white;
+  border-radius: 12px;
+  box-shadow: 0 0 20px -5px rgba(0, 0, 0, 0.15); }
 
 #heroContent {
-    font-size: 1em;
-}
+  font-size: 1em; }
 
 #heroContent h2 {
-    font-weight: 700;
-}
+  font-weight: 700; }
 
 #heroContent h4 {
-    font-weight: 700;
-}
+  font-weight: 700; }
 
 #heroContent img {
-    border-radius: 12px;
-}
+  border-radius: 12px; }
 
 #heroChart {
-    height: 400px;
-    margin: 0;
-    padding: 0;
-    width: 100% !important;
-}
+  height: 400px;
+  margin: 0;
+  padding: 0;
+  width: 100% !important; }
 
 .text-alert {
-    font-size: 1.8em;
-}
+  font-size: 1.8em; }

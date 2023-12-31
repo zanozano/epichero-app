@@ -1,0 +1,19 @@
+{
+  "name": "epichero-app",
+  "version": "1.0.0",
+  "lockfileVersion": 3,
+  "requires": true,
+  "packages": {},
+  "description": "Embark on a journey into the extraordinary with EpicHero, where legends come to life and tales of valor unfold. Dive into a universe filled with mighty superheroes, each adorned with unique powers and gripping stories. EpicHero App is your portal to a realm where courage meets curiosity, providing a seamless exploration of iconic characters from various universes. Unleash the power of knowledge as you traverse the Heroic Chronicles, an interactive saga brought to life at your fingertips. Immerse yourself in the epic narratives, discover hidden abilities, and become the curator of your superhero destiny. Join us in the pursuit of greatness as we celebrate the timeless allure of heroes in a digital odyssey like no other. Welcome to EpicHero, where every tap opens a gateway to the extraordinary!",
+  "author": "Cristobal Manzano",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zanozano/epichero-app.git"
+  },
+  "scripts": {
+    "scss": "node-sass ./public/assets/scss/style.scss -o ./public/assets/css"
+  },
+  "devDependencies": {
+    "node-sass": "^9.0.0"
+  }
+}
