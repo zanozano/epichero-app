@@ -26,63 +26,50 @@ $(document).ready(function () {
                                 <div class="col-12 col-md-6">
                                 <h4>Biografia</h4>
                                 <ul class="mb-5">
-                                    <li><strong>Nombre Completo:</strong> ${
-										Object.values(biografia)[0]
-									}</li>
-                                    <li><strong>Alter Egos:</strong> ${
-										Object.values(biografia)[1]
-									}</li>
-                                    <li><strong>Alianzas:</strong> ${
-										Object.values(biografia)[2]
-									}</li>
-                                    <li><strong>Lugar de Nacimiento:</strong> ${
-										Object.values(biografia)[3]
-									}</li>
-                                    <li><strong>Primera Aparicion:</strong> ${
-										Object.values(biografia)[4]
-									}</li>
+                                    <li><strong>Nombre Completo:</strong> ${Object.values(biografia)[0]
+						}</li>
+                                    <li><strong>Alter Egos:</strong> ${Object.values(biografia)[1]
+						}</li>
+                                    <li><strong>Alianzas:</strong> ${Object.values(biografia)[2]
+						}</li>
+                                    <li><strong>Lugar de Nacimiento:</strong> ${Object.values(biografia)[3]
+						}</li>
+                                    <li><strong>Primera Aparicion:</strong> ${Object.values(biografia)[4]
+						}</li>
                                     <li><strong>Editor:</strong> ${Object.values(biografia)[5]}</li>
                                 </ul>
                                 </div>
                                 <div class="col-12 col-md-6">
                                 <h4>Apariencia</h4>
                                 <ul class="mb-5">
-                                    <li><strong>Genero:</strong> ${
-										Object.values(apariencia)[0]
-									}</li>
+                                    <li><strong>Genero:</strong> ${Object.values(apariencia)[0]
+						}</li>
                                     <li><strong>Raza:</strong> ${Object.values(apariencia)[1]}</li>
-                                    <li><strong>Altura:</strong> ${
-										Object.values(apariencia)[2]
-									}</li>
+                                    <li><strong>Altura:</strong> ${Object.values(apariencia)[2]
+						}</li>
                                     <li><strong>Peso:</strong> ${Object.values(apariencia)[3]}</li>
-                                    <li><strong>Color de ojos:</strong> ${
-										Object.values(apariencia)[4]
-									}</li>
-                                    <li><strong>Color de pelo:</strong> ${
-										Object.values(apariencia)[5]
-									}</li>
+                                    <li><strong>Color de ojos:</strong> ${Object.values(apariencia)[4]
+						}</li>
+                                    <li><strong>Color de pelo:</strong> ${Object.values(apariencia)[5]
+						}</li>
                                 </ul>
                                 </div>
                                 <div class="col-12 col-md-6">
                                 <h4>Trabajo</h4>
                                 <ul class="mb-5">
-                                    <li><strong>Ocupación:</strong> ${
-										Object.values(trabajo)[0]
-									}</li>
-                                    <li><strong>Base de Operaciones:</strong> ${
-										Object.values(trabajo)[0]
-									}</li>
+                                    <li><strong>Ocupación:</strong> ${Object.values(trabajo)[0]
+						}</li>
+                                    <li><strong>Base de Operaciones:</strong> ${Object.values(trabajo)[0]
+						}</li>
                                 </ul>
                                 </div>
                                 <div class="col-12 col-md-6">
                                 <h4>Conecciones</h4>
                                 <ul class="mb-5">
-                                    <li><strong>Grupo de Afiliación:</strong> ${
-										Object.values(conecciones)[0]
-									}</li>
-                                    <li><strong>Parientes:</strong> ${
-										Object.values(conecciones)[0]
-									}</li>
+                                    <li><strong>Grupo de Afiliación:</strong> ${Object.values(conecciones)[0]
+						}</li>
+                                    <li><strong>Parientes:</strong> ${Object.values(conecciones)[0]
+						}</li>
                                 </ul>
                                 </div>
                             </div>
@@ -129,6 +116,6 @@ $(document).ready(function () {
 				`<p class="text-center text-alert mt-5"><strong>Ingresa un valor numerico entre 1 y 731</strong></p>`
 			);
 			$('#heroChart').html('');
-		} //if
+		}
 	});
 });
