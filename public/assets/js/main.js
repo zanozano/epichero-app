@@ -1,119 +1,196 @@
 $(document).ready(function () {
 	$('form').submit(function (event) {
 		event.preventDefault();
-		let valueInput = $('#heroInput').val(); //INPUT
-		let regExp = /([1-9][0-9]*)|0/; // Validador numerico
+		let valueInput = $('#heroInput').val();
+
+		let regExp = /([1-9][0-9]*)|0/;
 		if (valueInput != '' && regExp.test(valueInput) == true && valueInput < 732) {
+
+			$('#hero-banner').attr('class', 'd-none');
+			$('#heroContent').html(`
+                <div class="spinner-border text-primary" role="status"></div>
+            `);
+
 			$.ajax({
 				url: 'https://www.superheroapi.com/api.php/10226352771863306/' + valueInput,
 				success: function (data) {
-					let nombre = data.name;
-					let biografia = data.biography;
-					let apariencia = data.appearance;
-					let trabajo = data.work;
-					let conecciones = data.connections;
-					let imagen = data.image.url;
+					$('#heroContent').html('');
+					let nombre = data.name || "Unknown";
+					let biografia = data.biography || "Unknown";
+					let apariencia = data.appearance || "Unknown";
+					let trabajo = data.work || "Unknown";
+					let conecciones = data.connections || "Unknown";
+					let imagen = data.image.url || "URL_not_available";
+
 					//
 					$('#heroContent').html(`
-                    <div class="row">
-                        <div class="col-12 col-md-4 ">
-                            <img class="img-fluid mx-auto mb-5" src="${imagen}" />
-                        </div>
-                        <div class="col-12 col-md-8">
-                        <h2 class="text-center">${nombre}</h2>
-                        <hr>
-                            <div class="row">
-                                <div class="col-12 col-md-6">
-                                <h4>Biografia</h4>
-                                <ul class="mb-5">
-                                    <li><strong>Nombre Completo:</strong> ${Object.values(biografia)[0]
-						}</li>
-                                    <li><strong>Alter Egos:</strong> ${Object.values(biografia)[1]
-						}</li>
-                                    <li><strong>Alianzas:</strong> ${Object.values(biografia)[2]
-						}</li>
-                                    <li><strong>Lugar de Nacimiento:</strong> ${Object.values(biografia)[3]
-						}</li>
-                                    <li><strong>Primera Aparicion:</strong> ${Object.values(biografia)[4]
-						}</li>
-                                    <li><strong>Editor:</strong> ${Object.values(biografia)[5]}</li>
-                                </ul>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                <h4>Apariencia</h4>
-                                <ul class="mb-5">
-                                    <li><strong>Genero:</strong> ${Object.values(apariencia)[0]
-						}</li>
-                                    <li><strong>Raza:</strong> ${Object.values(apariencia)[1]}</li>
-                                    <li><strong>Altura:</strong> ${Object.values(apariencia)[2]
-						}</li>
-                                    <li><strong>Peso:</strong> ${Object.values(apariencia)[3]}</li>
-                                    <li><strong>Color de ojos:</strong> ${Object.values(apariencia)[4]
-						}</li>
-                                    <li><strong>Color de pelo:</strong> ${Object.values(apariencia)[5]
-						}</li>
-                                </ul>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                <h4>Trabajo</h4>
-                                <ul class="mb-5">
-                                    <li><strong>Ocupación:</strong> ${Object.values(trabajo)[0]
-						}</li>
-                                    <li><strong>Base de Operaciones:</strong> ${Object.values(trabajo)[0]
-						}</li>
-                                </ul>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                <h4>Conecciones</h4>
-                                <ul class="mb-5">
-                                    <li><strong>Grupo de Afiliación:</strong> ${Object.values(conecciones)[0]
-						}</li>
-                                    <li><strong>Parientes:</strong> ${Object.values(conecciones)[0]
-						}</li>
-                                </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    `);
-					//
+					<div class="d-flex flex-column gap-5">
+						<div class="row">
+					
+									<div class="col-md-6 col-12">
+									<h2 class="text-center mb-4 fw-bold">${nombre}</h2>
+										<img src="${imagen}" alt="superhero" class="img-fluid character"> 
+									</div>
+									
+									<div class="col-md-3 col-12">
+										<h5 class="fw-bold">Appearance</h5>
+										<div class="mb-3">
+										<label for="Gender" class="form-label">Gender</label>
+										<input class="form-control" type="text" placeholder="${Object.values(apariencia)[0]}" aria-label="${Object.values(apariencia)[0]}" disabled>
+										</div>
+										
+										<div class="mb-3">
+										<label for="Race" class="form-label">Race</label>
+										<input class="form-control" type="text" placeholder="${Object.values(apariencia)[1]}" aria-label="${Object.values(apariencia)[1]}" disabled>
+										</div>
+										
+										<div class="mb-3">
+										<label for="Height" class="form-label">Height</label>
+										<input class="form-control" type="text" placeholder="${Object.values(apariencia)[2]}" aria-label="${Object.values(apariencia)[2]}" disabled>
+										</div>
+										
+										<div class="mb-3">
+										<label for="Weight" class="form-label">Weight</label>
+										<input class="form-control" type="text" placeholder="${Object.values(apariencia)[3]}" aria-label="${Object.values(apariencia)[3]}" disabled>
+										</div>
+										
+										<div class="mb-3">
+										<label for="Eye Color" class="form-label">Eye Color</label>
+										<input class="form-control" type="text" placeholder="${Object.values(apariencia)[4]}" aria-label="${Object.values(apariencia)[4]}" disabled>
+										</div>
+										
+										<div class="mb-3">
+										<label for="Hair Color" class="form-label">Hair Color</label>
+										<input class="form-control" type="text" placeholder="${Object.values(apariencia)[5]}" aria-label="${Object.values(apariencia)[5]}" disabled>
+										</div>
+									</div>
+									
+									<div class="col-md-3 col-12">
+										<h5 class="fw-bold">Biography</h5>
+										<div class="mb-3">
+										<label for="Full Name" class="form-label">Full Name</label>
+										<input class="form-control" type="text" placeholder="${Object.values(biografia)[0]}" aria-label="${Object.values(biografia)[0]}" disabled>
+										</div>
+									
+										<div class="mb-3">
+										<label for="Alter Egos" class="form-label">Alter Egos</label>
+										<input class="form-control" type="text" placeholder="${Object.values(biografia)[1]}" aria-label="${Object.values(biografia)[1]}" disabled>
+										</div>
+									
+										<div class="mb-3">
+										<label for="Alliances" class="form-label">Alliances</label>
+										<input class="form-control" type="text" placeholder="${Object.values(biografia)[2]}" aria-label="${Object.values(biografia)[2]}" disabled>
+										</div>
+									
+										<div class="mb-3">
+										<label for="Place of Birth" class="form-label">Place of Birth</label>
+										<input class="form-control" type="text" placeholder="${Object.values(biografia)[3]}" aria-label="${Object.values(biografia)[3]}" disabled>
+										</div>
+									
+										<div class="mb-3">
+										<label for="First Appearance" class="form-label">First Appearance</label>
+										<input class="form-control" type="text" placeholder="${Object.values(biografia)[4]}" aria-label="${Object.values(biografia)[4]}" disabled>
+										</div>
+									
+										<div class="mb-3">
+										<label for="Publisher" class="form-label">Publisher</label>
+										<input class="form-control" type="text" placeholder="${Object.values(biografia)[5]}" aria-label="${Object.values(biografia)[5]}" disabled>
+										</div>
+										</div>
+						</div>
+									
+						<div class="row">
+										
+								<div class="col-md-4 col-12">
+										<h5 class="fw-bold">Work</h5>
+										<div class="mb-3">
+										<label for="Occupation" class="form-label">Occupation</label>
+										<input class="form-control" type="text" placeholder="${Object.values(trabajo)[0]}" aria-label="${Object.values(trabajo)[0]}" disabled>
+										</div>
+										
+										<div class="mb-3">
+										<label for="Base of Operations" class="form-label">Base of Operations</label>
+										<input class="form-control" type="text" placeholder="${Object.values(trabajo)[1]}" aria-label="${Object.values(trabajo)[1]}" disabled>
+										</div>
+								
+										<h5 class="fw-bold mt-4">Connections</h5>
+										<div class="mb-3">
+										<label for="Group Affiliation" class="form-label">Group Affiliation</label>
+										<input class="form-control" type="text" placeholder="${Object.values(conecciones)[0]}" aria-label="${Object.values(conecciones)[0]}" disabled>
+										</div>
+									
+										<div class="mb-3">
+										<label for="Relatives" class="form-label">Relatives</label>
+										<input class="form-control" type="text" placeholder="${Object.values(conecciones)[1]}" aria-label="${Object.values(conecciones)[1]}" disabled>
+										</div>
+									</div>
+
+									<div class="mt-5 col-md-8 col-12 d-flex justify-content-center align-items-center">	
+										<div id="showChart" class="d-flex justify-content-center align-items-center">
+											<canvas id="heroChart"></canvas>
+										</div>
+									</div>
+						</div>
+							
+					</div>
+									`);
+
+
 					let estadisticas = [];
-					for (let o in data.powerstats) {
+					for (let label in data.powerstats) {
 						estadisticas.push({
-							indexLabel: o,
-							y: data.powerstats[o] == 'null' ? 0 : data.powerstats[o],
+							indexLabel: label,
+							stat: data.powerstats[label] == 'null' ? 0 : data.powerstats[label],
 						});
 					}
-					//
-					let config = {
-						animationEnabled: true,
-						title: {
-							text: `Estadisticas del superheroe ${nombre}`,
+
+					let labels = estadisticas.map(item => item.indexLabel.charAt(0).toUpperCase() + item.indexLabel.slice(1).toLowerCase());
+					let stats = estadisticas.map(item => parseInt(item.stat));
+
+					const ctx = document.getElementById('heroChart').getContext('2d');
+					new Chart(ctx, {
+						type: 'bar',
+						data: {
+							labels: labels,
+							datasets: [{
+								data: stats,
+								backgroundColor: [
+									'rgba(255, 99, 132, 1)',
+									'rgba(54, 162, 235, 1)',
+									'rgba(255, 206, 86, 1)',
+									'rgba(75, 192, 192, 1)',
+									'rgba(153, 102, 255, 1)',
+									'rgba(255, 159, 64, 1)'
+								],
+								borderColor: [
+									'rgba(255, 99, 132, 1)',
+									'rgba(54, 162, 235, 1)',
+									'rgba(255, 206, 86, 1)',
+									'rgba(75, 192, 192, 1)',
+									'rgba(153, 102, 255, 1)',
+									'rgba(255, 159, 64, 1)'
+								],
+								borderWidth: 1
+							}]
 						},
-						legend: {
-							maxWidth: 500,
-							itemWith: 220,
-						},
-						data: [
-							{
-								type: 'pie',
-								toolTipContent: '<b>{indexLabel}</b>: {y}',
-								showInLegend: 'true',
-								legendText: '{indexLabel} - {y}',
-								indexLabelFontSize: 16,
-								indexLabel: '{indexLabel} - {y}',
-								dataPoints: estadisticas,
+						options: {
+							plugins: {
+								legend: {
+									display: false
+								}
 							},
-						],
-					};
-					let chart = new CanvasJS.Chart('heroChart', config);
-					chart.render();
+							scales: {
+								y: {
+									beginAtZero: true
+								}
+							}
+						}
+					});
 				},
-				//
 			});
 		} else {
 			$('#heroContent').html(
-				`<p class="text-center text-alert mt-5"><strong>Ingresa un valor numerico entre 1 y 731</strong></p>`
+				`<p class="text-center m-0"><strong>Ingresa un valor numerico entre 1 y 731</strong></p>`
 			);
 			$('#heroChart').html('');
 		}
