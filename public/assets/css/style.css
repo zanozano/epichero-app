@@ -8,6 +8,7 @@ body {
 
 .header-custom {
   position: sticky;
+  opacity: 0.95;
 }
 
 .header-custom img {

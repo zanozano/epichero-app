@@ -8,7 +8,7 @@ $(document).ready(function () {
 
 			$('#hero-banner').attr('class', 'd-none');
 			$('#heroContent').html(`
-                <div class="spinner-border text-primary" role="status"></div>
+                <div class="spinner-border text-danger" role="status"></div>
             `);
 
 			$.ajax({
@@ -155,20 +155,20 @@ $(document).ready(function () {
 							datasets: [{
 								data: stats,
 								backgroundColor: [
-									'rgba(255, 99, 132, 1)',
-									'rgba(54, 162, 235, 1)',
-									'rgba(255, 206, 86, 1)',
-									'rgba(75, 192, 192, 1)',
-									'rgba(153, 102, 255, 1)',
-									'rgba(255, 159, 64, 1)'
+									'#474D4B',
+									'#7FB0B8',
+									'#B2A6A3',
+									'#295058',
+									'#A83C42',
+									'#D1923B'
 								],
 								borderColor: [
-									'rgba(255, 99, 132, 1)',
-									'rgba(54, 162, 235, 1)',
-									'rgba(255, 206, 86, 1)',
-									'rgba(75, 192, 192, 1)',
-									'rgba(153, 102, 255, 1)',
-									'rgba(255, 159, 64, 1)'
+									'rgba(71, 77, 75, 1)',
+									'rgba(127, 176, 184, 1)',
+									'rgba(178, 166, 163, 1)',
+									'rgba(41, 80, 88, 1)',
+									'rgba(168, 60, 66, 1)',
+									'rgba(209, 146, 59, 1)'
 								],
 								borderWidth: 1
 							}]
@@ -187,6 +187,7 @@ $(document).ready(function () {
 						}
 					});
 				},
+
 			});
 		} else {
 			$('#heroContent').html(
